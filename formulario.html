@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>formulario</title>
+    <link rel="stylesheet" href="form.css" />
+  </head>
+  <body>
+    <form action="">
+      <h2>Formulario de contacto</h2>
+      <fieldset>
+        <legend>Informacion Basica</legend>
+        <div class="form_input">
+          <label for="nombre">Nombre</label>
+          <input type="text" placeholder="Eddy Jose" id="nombre" />
+        </div>
+        <div class="form_input">
+          <label for="Email">Email</label>
+          <input type="email" placeholder="doojaf@gmail.com" id="Email" />
+        </div>
+        <div class="form_input">
+          <label for="Contraseña">Contraseña</label>
+          <input type="password" placeholder="7892di0s" id="Contraseña" />
+        </div>
+        <div class="form_input">
+          <label for=""
+            >Asunto
+            <input type="text" placeholder="El asunto de tu mensaje" />
+          </label>
+        </div>
+      </fieldset>
+      <!-- SELECT Y OPTION-->
+      <div class="form_input">
+        <label for=""
+          >Tipo de usuario
+          <select name="type-of-user" id="">
+            <option value="user 1">Seguidor</option>
+            <option value="user 2">Empresas</option>
+            <option value="user 3">Otros</option>
+          </select>
+        </label>
+      </div>
+      <!-- DATALIST Y OPTION -->
+      <div class="form_input">
+        <label for=""
+          >Referente
+          <input list="Referente" />
+          <datalist id="Referente" name="type-of-user" id="">
+            <option value="Amigo">Una persona cercana</option>
+            <option value="Un maestro">Un tutor academico</option>
+            <option value="Otros">Algo distinto</option>
+          </datalist>
+        </label>
+      </div>
+      <!-- TEXTAREA -->
+      <div class="form_input">
+        <label for="Mensaje">Mensaje</label>
+        <textarea rows="8" name="" id="Mensaje" placeholder="..."></textarea>
+      </div>
+      <div class="form_input">
+        <label for="nombre">Enviar</label>
+        <input type="submit" />
+      </div>
+    </form>
+    <div class="inici">
+      <a href="Tarea.html">Regresar</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+/* Reseteo básico para márgenes y box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, #2c075c, #04048C );
+    padding: 20px;
+}
+
+/* Contenedor que divide el contenido a la izquierda y el menú a la derecha */
+.contenedor-principal {
+    display: grid;
+    grid-template-columns: 1fr 250px; /* 1 fracción para artículos, 250px para el menú */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 90vh;
+}
+
+/* --- ESTILOS DE LOS ARTÍCULOS (GRID) --- */
+
+.area-articulos {
+    display: grid;
+    /* Aquí definimos el mapa exacto de dónde va cada pieza */
+    grid-template-areas:
+        "arriba arriba"
+        "centro derecha"
+        "abajo abajo";
+    grid-template-columns: 2fr 1fr; /* El centro (2fr) es el doble de grande que la derecha (1fr) */
+    gap: 15px;
+}
+
+/* Hacemos que los <section> no rompan la cuadrícula, pasando el control directo a los <article> */
+section {
+    display: contents;
+}
+
+.post {
+    background-color: #1e65b3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #e3e3fc;
+}
+
+/* Asignamos cada post a su área en el mapa */
+.post-arriba { 
+    grid-area: arriba; 
+}
+
+.post-centro { 
+    grid-area: centro; 
+    min-height: 300px; /* Le damos más altura para asegurar que sea el más grande */
+    background-color: #3434a3; /* Un color de fondo distinto para que resalte */
+}
+
+.post-derecha { 
+    grid-area: derecha; 
+}
+
+.post-abajo { 
+    grid-area: abajo; 
+}
+
+/* --- ESTILOS DEL MENÚ LATERAL --- */
+
+.menu-lateral {
+    background-color: #2c3e50;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Separa los nav del botón de contacto */
+}
+
+.enlaces-nav nav {
+    margin-bottom: 10px;
+}
+
+.menu-lateral a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #34495e;
+    transition: background 0.3s ease;
+}
+
+.menu-lateral a:hover {
+    background-color: #1abc9c;
+}
+
+.contacto {
+    margin-top: 20px;
+    border-top: 2px solid #34495e;
+    padding-top: 20px;
+}
+
+.contacto a {
+    background-color: #e74c3c;
+}
+
+.contacto a:hover {
+    background-color: #c0392b;
+}
+
+/* --- MEDIA QUERIES (Diseño Responsivo) --- */
+@media (max-width: 768px) {
+    /* Cambiamos el contenedor principal a una sola columna */
+    .contenedor-principal {
+        grid-template-columns: 1fr; 
+    }
+
+    /* Reordenamos las áreas de los artículos para que se apilen uno debajo del otro */
+    .area-articulos {
+        grid-template-areas:
+            "arriba"
+            "centro"
+            "derecha"
+            "abajo";
+        grid-template-columns: 1fr; /* Una sola columna para los posts */
+    }
+
+    /* Quitamos la altura mínima obligatoria del centro en móviles */
+    .post-centro {
+        min-height: auto;
+    }
+
+    /* Hacemos que el menú lateral se coloque arriba o abajo (ahora fluirá natural) */
+    .menu-lateral {
+        margin-top: 20px;
+    }
+}
