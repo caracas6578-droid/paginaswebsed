@@ -1,0 +1,85 @@
+/* Reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* =========================================
+   1. EL ARQUITECTO (GRID) - Diseño General
+   ========================================= */
+.cabecera-principal {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 30px;
+    
+    /* Encendemos el Arquitecto */
+    display: grid;
+    
+    /* Dividimos la barra en 3 "habitaciones" exactas: 
+       1fr (Izquierda), 2fr (Centro, el doble de grande), 1fr (Derecha) */
+    grid-template-columns: 1fr 2fr 1fr;
+    
+    /* Centramos el contenido de todas las habitaciones verticalmente */
+    align-items: center; 
+}
+
+/* =========================================
+   2. EL DECORADOR (FLEXBOX) - Detalles Internos
+   ========================================= */
+
+/* Decorando la Habitación Central (El Menú) */
+.menu-central {
+    /* Encendemos el Decorador */
+    display: flex;
+    
+    /* Ponemos los enlaces exactamente en el medio de su habitación */
+    justify-content: center;
+    
+    /* Espacio exacto entre cada enlace */
+    gap: 30px; 
+}
+
+/* Estilos bonitos para los enlaces del menú */
+.menu-central a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu-central a:hover {
+    color: #1abc9c;
+}
+
+/* Decorando la Habitación Derecha (Los Botones) */
+.botones-derecha {
+    /* Encendemos el Decorador de nuevo */
+    display: flex;
+    
+    /* Empujamos los botones totalmente hacia la derecha de su habitación */
+    justify-content: flex-end;
+    
+    /* Espacio entre los dos botones */
+    gap: 15px;
+}
+
+/* Estilos bonitos para los botones */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-login {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.btn-registro {
+    background-color: #1abc9c;
+    color: white;
+}
