@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eddy | Portafolio Profesional</title>
+    <link rel="stylesheet" href="style2.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html" class="logo">DevEddy.</a>
+        <ul class="nav-links">
+          <li><a href="acerca-de.html">Acerca de</a></li>
+          <li><a href="mision.html">Misión</a></li>
+          <li><a href="vision.html">Visión</a></li>
+          <li><a href="login.html" class="btn-login">Iniciar Sesión</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="split-section">
+      <div class="content-box">
+        <h2>Hola, soy Eddy</h2>
+        <p>
+          Estudiante de Informática y Desarrollador Web en formación. Apasionado
+          por la tecnología, las estructuras de datos y el diseño de interfaces
+          limpias. Mi enfoque está en crear soluciones que no solo funcionen
+          bien, sino que ofrezcan una excelente experiencia al usuario.
+        </p>
+        <p>
+          Combino la lógica de la programación con principios de diseño para
+          construir la web del futuro.
+        </p>
+      </div>
+      <div class="image-box">
+        <img
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+          alt="Espacio de trabajo de desarrollo"
+        />
+      </div>
+    </section>
+
+    <section class="split-section reverse">
+      <div class="content-box">
+        <h2>Mis Habilidades</h2>
+        <p>
+          Constantemente mejorando mis herramientas técnicas y habilidades
+          blandas a través de la disciplina y el estudio continuo.
+        </p>
+        <div class="skills-container">
+          <span class="skill-tag">HTML5 & CSS3</span>
+          <span class="skill-tag">Lógica de Programación</span>
+          <span class="skill-tag">Estructuras de Datos</span>
+          <span class="skill-tag">Diseño UI/UX</span>
+          <span class="skill-tag">Resolución de Problemas</span>
+          <span class="skill-tag">Inglés Técnico</span>
+        </div>
+      </div>
+      <div class="image-box">
+        <img
+          src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+          alt="Código en pantalla"
+        />
+      </div>
+    </section>
+
+    <section class="swiper-section">
+      <h2>Mi Galería / Proyectos</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img
+              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Slide 1"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Slide 2"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Slide 3"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Slide 4"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Slide 5"
+            />
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </section>
+
+    <footer>
+      <h3>Eddy - Desarrollo Web</h3>
+      <p>
+        &copy; 2026 Todos los derechos reservados. Construido con HTML, CSS y
+        buenas prácticas.
+      </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      // Inicialización del carrusel
+      var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 3500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+  </body>
+</html>
