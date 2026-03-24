@@ -3,51 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Layout de Artículos y Menú Lateral</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Habilidades - Eddy Pinto</title>
+    <link rel="stylesheet" href="style2.css" />
   </head>
   <body>
-    <div class="contenedor-principal">
-      <main class="area-articulos">
-        <section class="seccion-uno">
-          <article class="post post-arriba">
-            <h2>Post arriba</h2>
-            <p>Este artículo abarca toda la parte superior del contenido.</p>
-          </article>
-
-          <article class="post post-centro">
-            <h2>Post Centro (El más grande)</h2>
-            <p>
-              Este es el artículo principal. Tiene mayor altura y anchura en la
-              cuadrícula para destacar sobre el resto.
-            </p>
-          </article>
-        </section>
-
-        <section class="seccion-dos">
-          <article class="post post-derecha">
-            <h2>Post Derecha</h2>
-            <p>Este artículo se ubica al lado derecho del post central.</p>
-          </article>
-
-          <article class="post post-abajo">
-            <h2>Post Abajo</h2>
-            <p>Este artículo abarca toda la parte inferior del contenido.</p>
-          </article>
-        </section>
-      </main>
-
-      <aside class="menu-lateral">
-        <div class="enlaces-nav">
-          <nav><a href="#inicio">Inicio</a></nav>
-          <nav><a href="#mision">Misión</a></nav>
-          <nav><a href="#vision">Visión</a></nav>
+    <main class="main-container">
+      <section class="section-container row personal-section">
+        <div class="media-content">
+          <h2>Datos personales</h2>
+          <img
+            src="https://static0.xdaimages.com/wordpress/wp-content/uploads/2024/11/resident-evil-4-leon.jpg?w=1600&h=900&fit=crop"
+            alt="Foto de Eddy Pinto"
+            class="profile-img"
+          />
         </div>
 
-        <div class="contacto">
-          <a href="formulario.html">Contacto</a>
+        <div class="text-content">
+          <ul>
+            <li><strong>Nombre:</strong> Eddy</li>
+            <li><strong>Apellido:</strong> Pinto</li>
+            <li><strong>Edad:</strong> 18 años</li>
+            <li><strong>Trabajo:</strong> Programador Web</li>
+            <li><strong>Dirección:</strong> Guatire</li>
+          </ul>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum,
+            sit eligendi vitae voluptatum nesciunt esse facere! Tempora ipsum
+            similique, fugit tenetur commodi impedit consequuntur architecto
+            maiores harum in!
+          </p>
         </div>
-      </aside>
-    </div>
+      </section>
+
+      <section class="section-container row habilidades-section row-reverse">
+        <div class="media-content">
+          <h2>Habilidades</h2>
+          <img
+            src="https://sm.ign.com/ign_nordic/news/c/capcom-fin/capcom-finally-confirms-leon-s-kennedy-is-in-resident-evil-r_rkmp.jpg"
+            alt="Habilidades de Eddy"
+            class="skills-img"
+          />
+        </div>
+
+        <div class="text-content">
+          <ul>
+            <li>Ingeniero en Informática Cuántica</li>
+            <li>Ingeniero en Biología Genética</li>
+            <li>Veterano de Guerra</li>
+            <li>Peleador Profesional</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="main-footer">
+      <p>Copyright © 2023 Eddy Pinto. Todos los derechos reservados.</p>
+    </footer>
   </body>
 </html>
