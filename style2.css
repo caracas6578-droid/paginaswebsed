@@ -1,5 +1,5 @@
 /* =========================================
-   1. VARIABLES DE COLOR (TECH PALETTE)
+   1. VARIABLES GLOBALES (TECH PALETTE)
    ========================================= */
 :root {
     --bg-principal: #0b0f1a;      /* Azul casi negro */
@@ -9,10 +9,17 @@
     --texto-brillante: #e6f1ff;   /* Blanco azulado */
     --texto-suave: #8892b0;       /* Gris azulado para párrafos */
     --gradiente-tech: linear-gradient(90deg, #00f2fe, #0077ff);
+    /* Efecto de cristal para inputs */
+    --bg-input: rgba(22, 28, 45, 0.5); 
+}
+
+/* --- EFECTO DE DESLIZAMIENTO SUAVE GLOBAL --- */
+html {
+    scroll-behavior: smooth;
 }
 
 /* =========================================
-   2. RESETEO Y FONDO GENERAL
+   2. RESETEO Y FONDO GENERAL (GLOBAL)
    ========================================= */
 * {
     margin: 0;
@@ -28,25 +35,98 @@ body {
         radial-gradient(circle at 90% 80%, rgba(0, 119, 255, 0.05) 0%, transparent 20%);
     color: var(--texto-suave);
     line-height: 1.7;
-    padding: 40px 20px;
+    padding: 20px; /* Menos padding general, el navbar sticky lo requiere */
 }
 
+/* Contenedor principal que centra el sitio web */
 .main-container {
     max-width: 1000px;
     margin: 0 auto;
+    padding-top: 40px; /* Espacio para que el contenido no pegue al navbar */
 }
 
 /* =========================================
-   3. TARJETAS MODERNAS (GLASSMORPHISM)
+   3. ESTILOS DE NAVEGACIÓN (COMPONENTE COMPARTIDO)
+   ========================================= */
+.navbar-tech {
+    position: sticky; /* Se queda pegado arriba */
+    top: 0;
+    z-index: 1000;
+    background: rgba(11, 15, 26, 0.9); /* Fondo semi-transparente */
+    backdrop-filter: blur(10px); /* Efecto de cristal */
+    border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+    padding: 15px 0;
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-logo {
+    color: var(--texto-brillante);
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.nav-logo span {
+    color: var(--acento-cian);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--acento-cian);
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+}
+
+/* Estilo especial para el botón de contacto */
+.btn-contacto-nav {
+    border: 1px solid var(--acento-cian);
+    padding: 8px 18px;
+    border-radius: 5px;
+    background: rgba(0, 242, 254, 0.05);
+}
+
+.btn-contacto-nav:hover {
+    background: var(--acento-cian) !important;
+    color: var(--bg-principal) !important;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+}
+
+/* Ajuste para que el scroll no tape el título de la sección */
+section {
+    scroll-margin-top: 100px;
+}
+
+/* =========================================
+   4. TARJETAS MODERNAS (COMPONENTE COMPARTIDO)
    ========================================= */
 .section-container {
     background-color: var(--bg-tarjeta);
-    border: 1px solid rgba(0, 242, 254, 0.1); /* Borde muy fino sutil */
+    border: 1px solid rgba(0, 242, 254, 0.1); 
     padding: 40px;
     margin-bottom: 40px;
     border-radius: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Efecto de profundidad */
     box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
 }
 
@@ -56,9 +136,7 @@ body {
     box-shadow: 0 20px 40px -15px rgba(0, 242, 254, 0.1);
 }
 
-/* =========================================
-   4. TÍTULOS Y TEXTO TECH
-   ========================================= */
+/* Estilos de títulos y texto dentro de las tarjetas */
 h2 {
     font-size: 1.8rem;
     color: var(--texto-brillante);
@@ -68,7 +146,6 @@ h2 {
     gap: 15px;
 }
 
-/* El truco del título con línea de neón */
 h2::after {
     content: "";
     flex: 1;
@@ -77,28 +154,12 @@ h2::after {
     opacity: 0.3;
 }
 
-.text-content ul li {
-    list-style: none;
-    margin-bottom: 12px;
-    color: var(--texto-brillante);
-    display: flex;
-    align-items: center;
-}
-
-/* Viñetas cuadradas tecnológicas */
-.text-content ul li::before {
-    content: "▹";
-    color: var(--acento-cian);
-    margin-right: 10px;
-    font-size: 1.2rem;
-}
-
 /* =========================================
    5. IMÁGENES CON EFECTO GLOW
    ========================================= */
 .profile-img, .skills-img {
     width: 100%;
-    max-width: 400px;
+    max-width: 430px;
     height: 300px;
     object-fit: cover;
     border-radius: 15px;
@@ -115,7 +176,7 @@ h2::after {
 }
 
 /* =========================================
-   6. ALINEACIÓN (REPASO DE FLEXBOX)
+   5. MAQUETACIÓN FLEXBOX (REPASO GLOBAL)
    ========================================= */
 .row {
     display: flex;
@@ -134,7 +195,73 @@ h2::after {
 }
 
 /* =========================================
-   7. FOOTER
+   6. NUEVO: ESTILOS TECH PARA FORMULARIOS
+   ========================================= */
+.form-tech {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    color: var(--acento-cian);
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.form-tech input, .form-tech textarea, .form-tech select {
+    background-color: var(--bg-input);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    color: var(--texto-brillante);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Efecto de enfoque Tech con Glow */
+.form-tech input:focus, .form-tech textarea:focus, .form-tech select:focus {
+    outline: none;
+    border-color: var(--acento-cian);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+    background-color: rgba(0, 242, 254, 0.03);
+}
+
+.form-tech textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Estilo para el botón de enviar */
+.btn-submit-tech {
+    background: var(--gradiente-tech);
+    color: var(--bg-principal);
+    border: none;
+    padding: 15px 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-submit-tech:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
+}
+
+/* =========================================
+   7. FOOTER (COMPONENTE COMPARTIDO)
    ========================================= */
 .main-footer {
     text-align: center;
@@ -144,4 +271,5 @@ h2::after {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: var(--acento-azul);
+    border-top: 1px solid rgba(0, 242, 254, 0.1);
 }
