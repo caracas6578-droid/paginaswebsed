@@ -107,6 +107,7 @@ h2 {
     margin-bottom: 1.5rem;
     background: linear-gradient(to right, var(--primary-cyan), var(--primary-blue));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
