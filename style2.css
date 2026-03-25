@@ -2,15 +2,21 @@
    1. VARIABLES GLOBALES (TECH PALETTE)
    ========================================= */
 :root {
-    --bg-principal: #0b0f1a;      /* Azul casi negro */
-    --bg-tarjeta: #161c2d;        /* Azul oscuro para las secciones */
-    --acento-cian: #00f2fe;       /* Cian eléctrico */
-    --acento-azul: #0077ff;       /* Azul tecnológico */
-    --texto-brillante: #e6f1ff;   /* Blanco azulado */
-    --texto-suave: #8892b0;       /* Gris azulado para párrafos */
+    --bg-principal: #0b0f1a;
+    /* Azul casi negro */
+    --bg-tarjeta: #161c2d;
+    /* Azul oscuro para las secciones */
+    --acento-cian: #00f2fe;
+    /* Cian eléctrico */
+    --acento-azul: #0077ff;
+    /* Azul tecnológico */
+    --texto-brillante: #e6f1ff;
+    /* Blanco azulado */
+    --texto-suave: #8892b0;
+    /* Gris azulado para párrafos */
     --gradiente-tech: linear-gradient(90deg, #00f2fe, #0077ff);
     /* Efecto de cristal para inputs */
-    --bg-input: rgba(22, 28, 45, 0.5); 
+    --bg-input: rgba(22, 28, 45, 0.5);
 }
 
 /* --- EFECTO DE DESLIZAMIENTO SUAVE GLOBAL --- */
@@ -30,30 +36,35 @@ html {
 
 body {
     background-color: var(--bg-principal);
-    background-image: 
+    background-image:
         radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.05) 0%, transparent 20%),
         radial-gradient(circle at 90% 80%, rgba(0, 119, 255, 0.05) 0%, transparent 20%);
     color: var(--texto-suave);
     line-height: 1.7;
-    padding: 20px; /* Menos padding general, el navbar sticky lo requiere */
+    padding: 20px;
+    /* Menos padding general, el navbar sticky lo requiere */
 }
 
 /* Contenedor principal que centra el sitio web */
 .main-container {
     max-width: 1000px;
     margin: 0 auto;
-    padding-top: 40px; /* Espacio para que el contenido no pegue al navbar */
+    padding-top: 40px;
+    /* Espacio para que el contenido no pegue al navbar */
 }
 
 /* =========================================
    3. ESTILOS DE NAVEGACIÓN (COMPONENTE COMPARTIDO)
    ========================================= */
 .navbar-tech {
-    position: sticky; /* Se queda pegado arriba */
+    position: sticky;
+    /* Se queda pegado arriba */
     top: 0;
     z-index: 1000;
-    background: rgba(11, 15, 26, 0.9); /* Fondo semi-transparente */
-    backdrop-filter: blur(10px); /* Efecto de cristal */
+    background: rgba(11, 15, 26, 0.9);
+    /* Fondo semi-transparente */
+    backdrop-filter: blur(10px);
+    /* Efecto de cristal */
     border-bottom: 1px solid rgba(0, 242, 254, 0.2);
     padding: 15px 0;
 }
@@ -122,7 +133,7 @@ section {
    ========================================= */
 .section-container {
     background-color: var(--bg-tarjeta);
-    border: 1px solid rgba(0, 242, 254, 0.1); 
+    border: 1px solid rgba(0, 242, 254, 0.1);
     padding: 40px;
     margin-bottom: 40px;
     border-radius: 20px;
@@ -157,13 +168,15 @@ h2::after {
 /* =========================================
    5. IMÁGENES CON EFECTO GLOW
    ========================================= */
-.profile-img, .skills-img {
+.profile-img,
+.skills-img {
     width: 100%;
     max-width: 430px;
     height: 300px;
     object-fit: cover;
     border-radius: 15px;
-    filter: grayscale(30%) brightness(0.9); /* Look cinematográfico */
+    filter: grayscale(30%) brightness(0.9);
+    /* Look cinematográfico */
     border: 2px solid rgba(0, 242, 254, 0.2);
     transition: all 0.4s ease;
 }
@@ -189,7 +202,8 @@ h2::after {
     flex-direction: row-reverse;
 }
 
-.media-content, .text-content {
+.media-content,
+.text-content {
     flex: 1;
     min-width: 300px;
 }
@@ -216,7 +230,9 @@ h2::after {
     letter-spacing: 1px;
 }
 
-.form-tech input, .form-tech textarea, .form-tech select {
+.form-tech input,
+.form-tech textarea,
+.form-tech select {
     background-color: var(--bg-input);
     border: 1px solid rgba(0, 242, 254, 0.2);
     color: var(--texto-brillante);
@@ -227,7 +243,9 @@ h2::after {
 }
 
 /* Efecto de enfoque Tech con Glow */
-.form-tech input:focus, .form-tech textarea:focus, .form-tech select:focus {
+.form-tech input:focus,
+.form-tech textarea:focus,
+.form-tech select:focus {
     outline: none;
     border-color: var(--acento-cian);
     box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
