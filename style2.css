@@ -291,3 +291,79 @@ h2::after {
     color: var(--acento-azul);
     border-top: 1px solid rgba(0, 242, 254, 0.1);
 }
+
+/* =========================================
+   8. DISEÑO RESPONSIVO (MOBILE ADAPTATION)
+   ========================================= */
+
+/* Esta regla se activa cuando la pantalla mide 768px o menos */
+@media (max-width: 768px) {
+    
+    body {
+        padding: 10px; /* Reducimos espacio exterior para ganar pantalla */
+    }
+
+    .main-container {
+        padding-top: 20px;
+    }
+
+    /* 1. Ajuste del Menú (Navbar) */
+    .nav-container {
+        flex-direction: column; /* Apilamos Logo arriba y Links abajo */
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap; /* Si los links son muchos, saltan de línea */
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem; /* Texto un poco más pequeño */
+    }
+
+    /* 2. Ajuste de las Secciones y Filas */
+    .section-container {
+        padding: 25px 15px; /* Menos espacio interno */
+        margin-bottom: 20px;
+    }
+
+    .row {
+        flex-direction: column !important; /* Forzamos que todo vaya hacia abajo */
+        text-align: center; /* Centramos el texto para que se vea ordenado */
+        gap: 30px;
+    }
+
+    /* Anulamos el efecto de imagen a la derecha para que en móvil 
+       todas las secciones sigan el mismo orden (Imagen arriba, texto abajo) */
+    .row-reverse {
+        flex-direction: column !important;
+    }
+
+    /* 3. Ajuste de Títulos */
+    h2 {
+        font-size: 1.5rem;
+        justify-content: center; /* Centramos el título y su línea de neón */
+    }
+
+    h2::after {
+        display: none; /* Quitamos la línea larga para no amontonar */
+    }
+
+    /* 4. Ajuste de Imágenes */
+    .profile-img, .skills-img {
+        max-width: 100%; /* La imagen ocupa todo el ancho del celular */
+        height: auto;    /* Mantiene la proporción original */
+    }
+
+    /* 5. Ajuste del Formulario */
+    .form-tech {
+        gap: 15px;
+    }
+
+    .btn-submit-tech {
+        width: 100%; /* El botón ocupa todo el ancho, es más fácil de tocar */
+        letter-spacing: 1px;
+    }
+}
