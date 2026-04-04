@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineMundo | Tu portal de películas</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">CineMundo</div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="nav-links" id="nav-links">
+        <a href="#estrenos">Estrenos</a>
+        <a href="#clasicos">Clásicos</a>
+        <a href="#noticias">Noticias</a>
+        <button id="btn-login" class="btn-primary">Iniciar Sesión</button>
+      </nav>
+    </header>
+
+    <div class="container">
+      <main>
+        <section id="estrenos" class="movie-card">
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BMTZkYzE2OGYtYTdjNC00ZDI2LTg0MjEtMjE0YmUzZGFjM2Y3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+            alt="Película 1"
+          />
+          <div class="movie-info">
+            <h2>Super Mario Galaxy: la pelicula</h2>
+            <p>
+              Es una pelicula animada de accion, aventuras y comedia estrenada
+              el 3 de abril para los cines del mundo. Esta basanda en la
+              franquicia de videojuegos de Super Mario de Nintendo.
+            </p>
+          </div>
+        </section>
+
+        <section class="movie-card">
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BNzRiMzZlMTMtNmU3OC00MDUwLThmNDUtMTBjZmQ3MWQ4NTljXkEyXkFqcGc@._V1_.jpg"
+            alt="Película 2"
+          />
+          <div class="movie-info">
+            <h2>Hopppers</h2>
+            <p>
+              Es una pelicula animada de comedia producida por Pixar Animation
+              Studios. Que trata sobre una joven amante de los animales llamada
+              Mabel que usa tecnologia avanzada para transferir su conciencia a
+              un castor robotico.
+            </p>
+          </div>
+        </section>
+
+        <section id="clasicos" class="movie-card">
+          <img
+            src="https://preview.redd.it/try-thinking-of-a-world-where-jurassic-park-didnt-have-a-v0-xflrnkg1t9ae1.jpeg?auto=webp&s=f4a25f707a41bfd498dc6d45a280a55ed28f5694"
+            alt="Película 3"
+          />
+          <div class="movie-info">
+            <h2>Jurassic Park</h2>
+            <p>
+              Dirigida por Steven Spielberg, es una obra maestra del cine de
+              ciencia ficción que revolucionó la industria con sus innovadores
+              efectos visuales. Basada en la novela de Michael Crichton, la
+              película narra la historia de un multimillonario, John Hammond,
+              que logra clonar dinosaurios mediante ADN hallado en ámbar
+              prehistórico para crear un parque temático en la ficticia Isla
+              Nublar.
+            </p>
+          </div>
+        </section>
+
+        <section class="movie-card">
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BNjAyYWZkYzUtM2RkNC00ODRiLTg5NmItNjU1MTdkYWE5ODJmXkEyXkFqcGc@._V1_.jpg"
+            alt="Película 4"
+          />
+          <div class="movie-info">
+            <h2>El Padrino</h2>
+            <p>
+              dirigida por Francis Ford Coppola, es ampliamente considerada una
+              de las mejores películas de la historia del cine. Basada en la
+              novela de Mario Puzo, narra la crónica de la familia Corleone, un
+              poderoso clan de la mafia italoamericana en Nueva York durante los
+              años 40.
+            </p>
+          </div>
+        </section>
+
+        <section class="movie-card">
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BZDcyZjIzZmYtZGQ5OS00ODc2LTkzN2EtNjlmMjI2NWMxYzljXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+            alt="Película 5"
+          />
+          <div class="movie-info">
+            <h2>El Exorcista</h2>
+            <p>
+              Es ampliamente considerada una de las películas de terror más
+              influyentes y aterradoras de todos los tiempos. Basada en la
+              novela homónima de William Peter Blatty, la historia sigue la
+              posesión demoníaca de una niña de 12 años y los intentos
+              desesperados de su madre y dos sacerdotes por salvarla.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <aside id="noticias">
+        <h3>Top 3 de la Semana</h3>
+        <ul>
+          <li>
+            <strong> Super Mario Galaxy: la pelicula </strong> rompe récords en
+            taquilla
+          </li>
+          <li>Nuevo tráiler de los <strong>Backrooms</strong> revelado</li>
+          <li>
+            Premios Oscar: <strong>Pecadores</strong> en fotografia, banda
+            sonora y guion original
+          </li>
+        </ul>
+        <div class="ad-banner">
+          <p>Publicidad</p>
+        </div>
+      </aside>
+    </div>
+
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="close-login">&times;</span>
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm">
+          <input type="text" id="login-user" placeholder="Usuario" required />
+          <input
+            type="password"
+            id="login-pass"
+            placeholder="Contraseña"
+            required
+          />
+          <button type="submit" class="btn-primary">Entrar</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="close-register">&times;</span>
+        <h2>Crear Cuenta</h2>
+        <form id="registerForm">
+          <input
+            type="text"
+            id="reg-user"
+            placeholder="Nuevo Usuario"
+            required
+          />
+          <input
+            type="password"
+            id="reg-pass"
+            placeholder="Contraseña"
+            required
+          />
+          <label for="reg-genre">Género Favorito:</label>
+          <select id="reg-genre" style="width: 100%">
+            <option value="accion">Acción</option>
+            <option value="sci-fi">Ciencia Ficción</option>
+            <option value="drama">Drama</option>
+            <option value="comedia">Comedia</option>
+          </select>
+          <button type="submit" class="btn-primary">Registrarse</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
