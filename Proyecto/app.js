@@ -1,7 +1,23 @@
 $(document).ready(function() {
     // 1. Menú Hamburguesa
-    $('#hamburger').click(function() {
+    
+    // Abrir/Cerrar al tocar la hamburguesa
+    $('#hamburger').click(function(e) {
         $('#nav-links').toggleClass('active');
+        e.stopPropagation(); // Evita que este clic dispare el evento del document de abajo
+    });
+
+    // Cerrar el menú al tocar cualquier enlace dentro de él
+    $('.nav-links a').click(function() {
+        $('#nav-links').removeClass('active');
+    });
+
+    // Cerrar el menú al tocar cualquier parte fuera de la navegación
+    $(document).click(function(e) {
+        // Verificamos si el menú está activo y si el clic NO fue dentro del nav-links
+        if ($('#nav-links').hasClass('active') && !$(e.target).closest('#nav-links').length) {
+            $('#nav-links').removeClass('active');
+        }
     });
 
     // 2. Control de Modales
