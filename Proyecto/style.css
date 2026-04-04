@@ -226,3 +226,53 @@ input {
         display: flex;
     }
 }
+
+/* =========================================
+   Footer
+   ========================================= */
+.site-footer {
+    background-color: var(--card-bg);
+    padding: 2rem 5%;
+    margin-top: 4rem;
+    border-top: 1px solid #334155;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.footer-content p {
+    color: #94a3b8; /* Un gris un poco más apagado para que no resalte más que el contenido principal */
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
