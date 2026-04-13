@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuestra Misión | CineMundo</title>
+    <link rel="stylesheet" href="style.css?v=5" />
+    <link rel="shortcut icon" href="logo.png" type="image/png" />
+  </head>
+  <body>
+    <video autoplay loop muted playsinline id="video-background">
+      <source src="6435-191745474_medium.mp4" type="video/mp4" />
+    </video>
+
+    <header class="navbar">
+      <div class="logo">CineMundo</div>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html" class="btn-primary" style="text-decoration: none"
+          >&larr; Regresar al Inicio</a
+        >
+      </nav>
+    </header>
+
+    <div class="container">
+      <main style="flex: 1; display: flex; justify-content: center">
+        <section
+          class="movie-card"
+          style="padding: 3rem; flex-direction: column; max-width: 800px"
+        >
+          <h1
+            style="
+              color: var(--primary-color);
+              margin-bottom: 1.5rem;
+              text-align: center;
+            "
+          >
+            Nuestra Misión
+          </h1>
+          <p style="font-size: 1.1rem; line-height: 1.8; text-align: justify">
+            En <strong>CineMundo</strong>, nuestra misión es conectar a los
+            amantes del séptimo arte con información veraz, críticas
+            constructivas y las últimas tendencias del mundo cinematográfico.
+            Buscamos ser el punto de encuentro donde la pasión por las películas
+            se transforme en una comunidad vibrante y apasionada, fomentando la
+            cultura audiovisual a través de una plataforma moderna y accesible
+            para todos.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-logo">CineMundo</div>
+        <p>&copy; 2026 CineMundo. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

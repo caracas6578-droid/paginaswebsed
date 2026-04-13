@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuestra Visión | CineMundo</title>
+    <link rel="stylesheet" href="style.css?v=5" />
+    <link rel="shortcut icon" href="logo.png" type="image/png" />
+  </head>
+  <body>
+    <video autoplay loop muted playsinline id="video-background">
+      <source src="6435-191745474_medium.mp4" type="video/mp4" />
+    </video>
+
+    <header class="navbar">
+      <div class="logo">CineMundo</div>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html" class="btn-primary" style="text-decoration: none"
+          >&larr; Regresar al Inicio</a
+        >
+      </nav>
+    </header>
+
+    <div class="container">
+      <main style="flex: 1; display: flex; justify-content: center">
+        <section
+          class="movie-card"
+          style="padding: 3rem; flex-direction: column; max-width: 800px"
+        >
+          <h1
+            style="
+              color: var(--primary-color);
+              margin-bottom: 1.5rem;
+              text-align: center;
+            "
+          >
+            Nuestra Visión
+          </h1>
+          <p style="font-size: 1.1rem; line-height: 1.8; text-align: justify">
+            Nuestra visión para el año 2030 es consolidarnos como el portal de
+            referencia número uno para el público hispanohablante, integrando
+            tecnologías de vanguardia para ofrecer experiencias inmersivas y
+            personalizadas. Aspiramos a ser líderes en la difusión de cine
+            independiente y grandes producciones, creando puentes entre
+            cineastas y su audiencia global.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-logo">CineMundo</div>
+        <p>&copy; 2026 CineMundo. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

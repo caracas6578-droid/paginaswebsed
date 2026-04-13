@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mundo Jurásico | Descubre a los Gigantes</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="dinologo.png" />
+  </head>
+  <body>
+    <video autoplay muted loop playsinline class="video-background">
+      <source src="218389_medium.mp4" type="video/mp4" />
+    </video>
+    <div class="video-overlay"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-glass fixed-top">
+      <div class="container">
+        <a
+          class="navbar-brand fw-bold"
+          href="javascript:void(0)"
+          onclick="mostrarInicio()"
+          >Dino<span style="color: #10b981">Pedia</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="javascript:void(0)"
+                onclick="mostrarInicio()"
+                >Inicio</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="javascript:void(0)"
+                onclick="cargarPagina('mision.html')"
+                >Misión</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="javascript:void(0)"
+                onclick="cargarPagina('vision.html')"
+                >Visión</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="javascript:void(0)"
+                onclick="cargarPagina('acerca.html')"
+                >Acerca de</a
+              >
+            </li>
+            <li class="nav-item ms-lg-3">
+              <button
+                class="btn btn-outline-success"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+              >
+                Iniciar Sesión
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      id="contenido-dinamico"
+      class="container"
+      style="display: none; min-height: 80vh"
+    ></section>
+
+    <main id="contenido-principal" class="container" style="margin-top: 100px">
+      <div class="text-center mb-5">
+        <h1 class="display-3 fw-bold">Era de los Gigantes</h1>
+        <p class="lead">
+          Explora las criaturas más fascinantes que caminaron sobre la Tierra.
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="dino-card">
+            <img
+              src="https://pbs.twimg.com/media/F5GM-eVbUAA282Y.jpg"
+              alt="Tyrannosaurus Rex"
+              class="dino-img"
+            />
+            <h2 class="dino-title">1. Tyrannosaurus Rex</h2>
+            <p>
+              El rey de los lagartos tiranos. Uno de los mayores depredadores
+              terrestres conocidos, con una mordida capaz de triturar huesos e
+              infundir terror en el Cretácico superior.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="dino-card">
+            <img
+              src="https://static.wikia.nocookie.net/prehistoric-planet/images/3/39/Screenshot_2023-08-02_131605.png/revision/latest?cb=20230802192119"
+              alt="Velociraptor"
+              class="dino-img"
+            />
+            <h2 class="dino-title">2. Velociraptor</h2>
+            <p>
+              Pequeño, ágil y letal. Un cazador inteligente que probablemente
+              cazaba en manadas y estaba cubierto de plumas, a diferencia de
+              como lo muestran las películas clásicas.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="dino-card">
+            <img
+              src="https://static.wikia.nocookie.net/prehistoric-planet/images/e/e1/Screenshot_2024-08-29_204330.png/revision/latest?cb=20240830025513"
+              alt="Argentinosaurus"
+              class="dino-img"
+            />
+            <h2 class="dino-title">3. Dreadnoughtus</h2>
+            <p>
+              Su nombre significa "que no teme a nada". Es uno de los titanes
+              más masivos cuyo esqueleto se ha encontrado casi completo,
+              permitiendo calcular con precisión su asombroso peso de unas 60
+              toneladas en el periodo Cretácico.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="dino-card">
+            <img
+              src="https://i0.wp.com/xn--oo-yjab.cl/wp-content/uploads/2021/09/ilustracion-estegosaurio-periodo-Jurasico.jpg?resize=980%2C678&ssl=1"
+              alt="Stegosaurus"
+              class="dino-img"
+            />
+            <h2 class="dino-title">4. Stegosaurus</h2>
+            <p>
+              Reconocible por las grandes placas en su espalda y su cola con
+              púas defensivas (thagomizer). Un herbívoro pacífico pero
+              fuertemente armado.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="dino-card">
+            <img
+              src="https://allyouneedisbiology.wordpress.com/wp-content/uploads/2015/03/spinosaurus-nat-geo1.jpg?w=1038&h=576&crop=1"
+              class="dino-img"
+            />
+            <h2 class="dino-title">5. Spinosaurus</h2>
+            <p>
+              El carnívoro más grande conocido, incluso mayor que el T-Rex.
+              Estaba adaptado para un estilo de vida semiacuático, alimentándose
+              principalmente de enormes peces.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="dino-card">
+            <img
+              src="https://static.wikia.nocookie.net/prehistoric-planet/images/d/d7/Prehistoric_Planet_-_Triceratops.jpg/revision/latest?cb=20230508150603"
+              alt="Triceratops"
+              class="dino-img"
+            />
+            <h2 class="dino-title">6. Triceratops</h2>
+            <p>
+              El famoso herbívoro de tres cuernos y una enorme gola ósea. Era
+              como el rinoceronte del Cretácico, capaz de defenderse
+              valientemente de grandes depredadores.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="dino-card text-center">
+            <img
+              src="https://static.wikia.nocookie.net/prehistoric-planet/images/c/c1/Quetzalcoatlus_pair_scavenging_an_Alamosaurus.png/revision/latest?cb=20230907074830"
+              alt="Quetzalcoatlus"
+              class="dino-img"
+              style="height: 400px"
+            />
+            <h2 class="dino-title">7. Quetzalcoatlus</h2>
+            <p>
+              Aunque técnicamente es un pterosaurio (reptil volador) y no un
+              dinosaurio, dominaba los cielos. Tenía el tamaño de una avioneta
+              moderna y cazaba en tierra como las cigüeñas actuales.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border-success">
+          <div class="modal-header border-secondary">
+            <h5 class="modal-title">Acceso a la DinoRed</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="formLogin">
+              <div class="mb-3">
+                <label class="form-label">Correo Electrónico</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  name="correo"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Contraseña</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-success w-100">
+                Ingresar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="registroModal"
+      tabindex="-1"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border-primary">
+          <div class="modal-header border-secondary">
+            <h5 class="modal-title">Usuario no encontrado. ¡Regístrate!</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="formRegistro">
+              <div class="mb-3">
+                <label class="form-label"
+                  >Correo Electrónico (Será reemplazado si ya existe)</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  name="reg_correo"
+                  id="reg_correo"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Nueva Contraseña</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  name="reg_password"
+                  required
+                />
+              </div>
+              <div class="mb-3 text-dark">
+                <label class="form-label text-white">Dinosaurio Favorito</label>
+                <select
+                  class="form-control select2-js"
+                  name="reg_dino"
+                  style="width: 100%"
+                >
+                  <option value=""></option>
+                  <option value="T-Rex">T-Rex</option>
+                  <option value="Velociraptor">Velociraptor</option>
+                  <option value="Triceratops">Triceratops</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                Crear y Reemplazar Usuario
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center py-4 mt-5 text-secondary">
+      <p class="mb-0">
+        &copy; 2026 Mundo Jurásico. Todos los derechos reservados.
+      </p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      // 1. Carga Dinámica de Contenido (Basado en tu código de MundoArte)
+      function cargarPagina(url) {
+        $("#contenido-principal").fadeOut(300, function () {
+          // Se espera que mision.html, vision.html y acerca.html tengan un div con class="content-box"
+          $("#contenido-dinamico")
+            .hide()
+            .load(url + " .content-box", function (response, status, xhr) {
+              if (status == "error") {
+                Swal.fire("Error", "No se pudo cargar la sección.", "error");
+                mostrarInicio();
+              } else {
+                $(this).fadeIn(500);
+                // Cerrar menú hamburguesa en móviles tras hacer clic
+                $(".navbar-collapse").collapse("hide");
+              }
+            });
+        });
+      }
+
+      function mostrarInicio() {
+        $("#contenido-dinamico").fadeOut(300, function () {
+          $("#contenido-principal").fadeIn(500);
+        });
+        $(".navbar-collapse").collapse("hide");
+      }
+
+      $(document).ready(function () {
+        // Inicializar Select2 en el modal de registro
+        $(".select2-js").select2({
+          placeholder: "Elige tu dinosaurio",
+          dropdownParent: $("#registroModal"), // Necesario para que funcione dentro del modal
+        });
+
+        // 2. Lógica de Login con AJAX
+        $("#formLogin").on("submit", function (e) {
+          e.preventDefault();
+          let correo = $("input[name='correo']").val();
+          let password = $("input[name='password']").val();
+
+          // Petición AJAX al backend PHP
+          $.ajax({
+            url: "backend.php",
+            type: "POST",
+            data: { action: "login", correo: correo, password: password },
+            dataType: "json",
+            success: function (res) {
+              if (res.status === "success") {
+                $("#loginModal").modal("hide");
+                Swal.fire(
+                  "¡Bienvenido!",
+                  "Has iniciado sesión correctamente.",
+                  "success",
+                );
+                $("#formLogin").trigger("reset");
+              } else {
+                // Usuario no existe o error, desplegar Modal de Registro
+                $("#loginModal").modal("hide");
+                $("#reg_correo").val(correo); // Pasar el correo intentado
+
+                Swal.fire({
+                  icon: "warning",
+                  title: "Usuario no encontrado",
+                  text: "Parece que no estás en la base de datos. ¡Regístrate ahora!",
+                  confirmButtonText: "Ir a Registro",
+                }).then(() => {
+                  $("#registroModal").modal("show");
+                });
+              }
+            },
+            error: function () {
+              Swal.fire(
+                "Error",
+                "Error de conexión con el servidor MySQL.",
+                "error",
+              );
+            },
+          });
+        });
+
+        // 3. Lógica de Registro/Reemplazo con AJAX
+        $("#formRegistro").on("submit", function (e) {
+          e.preventDefault();
+
+          let formData = {
+            action: "register",
+            correo: $("input[name='reg_correo']").val(),
+            password: $("input[name='reg_password']").val(),
+            dino: $("select[name='reg_dino']").val(),
+          };
+
+          $.ajax({
+            url: "backend.php",
+            type: "POST",
+            data: formData,
+            dataType: "json",
+            success: function (res) {
+              if (res.status === "success") {
+                $("#registroModal").modal("hide");
+                Swal.fire(
+                  "¡Éxito!",
+                  "Usuario creado/actualizado correctamente en MySQL.",
+                  "success",
+                );
+                $("#formRegistro").trigger("reset");
+                $(".select2-js").val(null).trigger("change");
+              } else {
+                Swal.fire("Error", res.message, "error");
+              }
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

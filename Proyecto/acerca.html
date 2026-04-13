@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acerca de Nosotros | CineMundo</title>
+    <link rel="stylesheet" href="style.css?v=5" />
+    <link rel="shortcut icon" href="logo.png" type="image/png" />
+  </head>
+  <body>
+    <video autoplay loop muted playsinline id="video-background">
+      <source src="6435-191745474_medium.mp4" type="video/mp4" />
+    </video>
+
+    <header class="navbar">
+      <div class="logo">CineMundo</div>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html" class="btn-primary" style="text-decoration: none"
+          >&larr; Regresar al Inicio</a
+        >
+      </nav>
+    </header>
+
+    <div class="container">
+      <main style="flex: 1; display: flex; justify-content: center">
+        <section
+          class="movie-card"
+          style="padding: 3rem; flex-direction: column; max-width: 800px"
+        >
+          <h1
+            style="
+              color: var(--primary-color);
+              margin-bottom: 1rem;
+              text-align: center;
+            "
+          >
+            Acerca de CineMundo
+          </h1>
+          <p style="text-align: center; margin-bottom: 2rem; color: #94a3b8">
+            Tecnología y Pasión por el Séptimo Arte.
+          </p>
+
+          <p style="margin-bottom: 1.5rem">
+            CineMundo nació como un proyecto académico y personal con el
+            objetivo de demostrar que el diseño web moderno y el amor por el
+            cine pueden convivir en una sola plataforma. Desarrollado por un
+            estudiante de informática apasionado por la web dinámica, este sitio
+            utiliza tecnologías como:
+          </p>
+
+          <ul
+            style="
+              margin-left: 2rem;
+              margin-bottom: 1.5rem;
+              color: var(--text-color);
+            "
+          >
+            <li>HTML5 Semántico y CSS Moderno (Flexbox & Grid)</li>
+            <li>Lógica interactiva con JavaScript y jQuery</li>
+            <li>Diseño responsivo para dispositivos móviles</li>
+            <li>Experiencia de usuario optimizada con SweetAlert2 y Select2</li>
+          </ul>
+
+          <p
+            style="
+              text-align: center;
+              font-weight: bold;
+              color: var(--accent-color);
+            "
+          >
+            Desarrollado con dedicación en Guatire para el mundo.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-logo">CineMundo</div>
+        <p>&copy; 2026 CineMundo. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
