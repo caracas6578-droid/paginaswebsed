@@ -338,125 +338,114 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-      // 1. Carga Dinámica de Contenido
+      // 1. Carga Dinámica de Contenido (Basado en tu código de MundoArte)
       function cargarPagina(url) {
-        $("#contenido-principal").fadeOut(300, function () {
-          $("#contenido-dinamico")
-            .hide()
-            .load(url + " .content-box", function (response, status, xhr) {
-              if (status == "error") {
-                Swal.fire("Error", "No se pudo cargar la sección.", "error");
-                mostrarInicio();
-              } else {
-                $(this).fadeIn(500);
-                // Cerrar menú móvil de forma nativa
-                const menu = document.getElementById("navbarNav");
-                const bsCollapse = bootstrap.Collapse.getInstance(menu);
-                if (bsCollapse) bsCollapse.hide();
-              }
-            });
-        });
+          $('#contenido-principal').fadeOut(300, function() {
+              // Se espera que mision.html, vision.html y acerca.html tengan un div con class="content-box"
+              $('#contenido-dinamico').hide().load(url + ' .content-box', function(response, status, xhr) {
+                  if (status == "error") {
+                      Swal.fire('Error', 'No se pudo cargar la sección.', 'error');
+                      mostrarInicio();
+                  } else {
+                      $(this).fadeIn(500);
+                      // Cerrar menú hamburguesa en móviles tras hacer clic
+                      $('.navbar-collapse').collapse('hide');
+                  }
+              });
+          });
       }
 
       function mostrarInicio() {
-        $("#contenido-dinamico").fadeOut(300, function () {
-          $("#contenido-principal").fadeIn(500);
-        });
-        const menu = document.getElementById("navbarNav");
-        const bsCollapse = bootstrap.Collapse.getInstance(menu);
-        if (bsCollapse) bsCollapse.hide();
+          $('#contenido-dinamico').fadeOut(300, function() {
+              $('#contenido-principal').fadeIn(500);
+          });
+          $('.navbar-collapse').collapse('hide');
       }
 
-      $(document).ready(function () {
-        // Inicializar Select2
-        $(".select2-js").select2({
-          placeholder: "Elige tu dinosaurio",
-          dropdownParent: $("#registroModal"),
-        });
-
-        // Lógica para cerrar el menú al hacer clic fuera (Mobile UX)
-        $(document).on("click", function (event) {
-          const clickover = $(event.target);
-          const menu = document.getElementById("navbarNav");
-          const _opened = menu.classList.contains("show");
-          if (_opened && !clickover.closest(".navbar").length) {
-            bootstrap.Collapse.getOrCreateInstance(menu).hide();
-          }
-        });
-
-        // --------------------------------------------------------
-        // LÓGICA DE LOGIN
-        // --------------------------------------------------------
-        $("#formLogin").on("submit", function (e) {
-          e.preventDefault();
-          let correo = $("input[name='correo']").val();
-          let password = $("input[name='password']").val();
-
-          // Instancia nativa del modal
-          const modalLoginEl = document.getElementById("loginModal");
-          const modalLogin = bootstrap.Modal.getOrCreateInstance(modalLoginEl);
-
-          if (correo === "admin@dinopedia.com" && password === "1234") {
-            modalLogin.hide();
-            Swal.fire({
-              icon: "success",
-              title: "¡Bienvenido!",
-              text: "Has iniciado sesión correctamente.",
-              background: "#1e293b",
-              color: "#fff",
-            });
-            $("#formLogin").trigger("reset");
-          } else {
-            modalLogin.hide();
-            $("#reg_correo").val(correo);
-
-            setTimeout(function () {
-              Swal.fire({
-                icon: "error",
-                title: "Usuario no encontrado",
-                text: "Las credenciales no coinciden. ¿Deseas registrarte?",
-                showCancelButton: true,
-                confirmButtonText: "Sí, registrarme",
-                cancelButtonText: "Cancelar",
-                background: "#1e293b",
-                color: "#fff",
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  bootstrap.Modal.getOrCreateInstance(
-                    document.getElementById("registroModal"),
-                  ).show();
-                } else {
-                  // Limpieza total de fondo
-                  $("body").removeClass("modal-open").css("padding-right", "");
-                  $(".modal-backdrop").remove();
-                }
-              });
-            }, 400);
-          }
-        });
-
-        // --------------------------------------------------------
-        // LÓGICA DE REGISTRO
-        // --------------------------------------------------------
-        $("#formRegistro").on("submit", function (e) {
-          e.preventDefault();
-          const modalReg = bootstrap.Modal.getOrCreateInstance(
-            document.getElementById("registroModal"),
-          );
-          modalReg.hide();
-
-          Swal.fire({
-            icon: "success",
-            title: "¡Cuenta Creada!",
-            text: "Registro simulado completado con éxito.",
-            background: "#1e293b",
-            color: "#fff",
+      $(document).ready(function() {
+          // Inicializar Select2 en el modal de registro
+          $('.select2-js').select2({
+              placeholder: "Elige tu dinosaurio",
+              dropdownParent: $('#registroModal') // Necesario para que funcione dentro del modal
           });
 
-          $("#formRegistro").trigger("reset");
-          $(".select2-js").val(null).trigger("change");
-        });
+          // Lógica para cerrar el menú al hacer clic fuera (Mobile UX)
+          $(document).on("click", function (event) {
+                const clickover = $(event.target);
+                const menu = document.getElementById('navbarNav');
+                const _opened = menu.classList.contains("show");
+                if (_opened && !clickover.closest(".navbar").length) {
+                    bootstrap.Collapse.getOrCreateInstance(menu).hide();
+                }
+            });
+
+          // 2. Lógica de Login con AJAX
+          $('#formLogin').on('submit', function(e) {
+              e.preventDefault();
+              let correo = $("input[name='correo']").val();
+              let password = $("input[name='password']").val();
+
+              // Petición AJAX al backend PHP
+              $.ajax({
+                  url: 'backend.php',
+                  type: 'POST',
+                  data: { action: 'login', correo: correo, password: password },
+                  dataType: 'json',
+                  success: function(res) {
+                      if(res.status === 'success') {
+                          $('#loginModal').modal('hide');
+                          Swal.fire('¡Bienvenido!', 'Has iniciado sesión correctamente.', 'success');
+                          $('#formLogin').trigger('reset');
+                      } else {
+                          // Usuario no existe o error, desplegar Modal de Registro
+                          $('#loginModal').modal('hide');
+                          $('#reg_correo').val(correo); // Pasar el correo intentado
+                          
+                          Swal.fire({
+                              icon: 'warning',
+                              title: 'Usuario no encontrado',
+                              text: 'Parece que no estás en la base de datos. ¡Regístrate ahora!',
+                              confirmButtonText: 'Ir a Registro'
+                          }).then(() => {
+                              $('#registroModal').modal('show');
+                          });
+                      }
+                  },
+                  error: function() {
+                      Swal.fire('Error', 'Error de conexión con el servidor MySQL.', 'error');
+                  }
+              });
+          });
+
+          // 3. Lógica de Registro/Reemplazo con AJAX
+          $('#formRegistro').on('submit', function(e) {
+              e.preventDefault();
+              
+              let formData = {
+                  action: 'register',
+                  correo: $("input[name='reg_correo']").val(),
+                  password: $("input[name='reg_password']").val(),
+                  dino: $("select[name='reg_dino']").val()
+              };
+
+              $.ajax({
+                  url: 'backend.php',
+                  type: 'POST',
+                  data: formData,
+                  dataType: 'json',
+                  success: function(res) {
+                      if(res.status === 'success') {
+                          $('#registroModal').modal('hide');
+                          Swal.fire('¡Éxito!', 'Usuario creado/actualizado correctamente en MySQL.', 'success');
+                          $('#formRegistro').trigger('reset');
+                          $('.select2-js').val(null).trigger('change');
+                      } else {
+                          Swal.fire('Error', res.message, 'error');
+                      }
+                  }
+              });
+          });
       });
-    </script>
+  </script>
   </body>
 </html>
