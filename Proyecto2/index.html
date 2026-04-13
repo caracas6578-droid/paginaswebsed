@@ -447,7 +447,26 @@
                 Swal.fire("Error", res.message, "error");
               }
             },
+            error: function () {
+              Swal.fire(
+                "Error",
+                "Error de conexión con el servidor MySQL.",
+                "error",
+              );
+            },
           });
+        });
+
+        // Lógica para cerrar el menú al hacer clic fuera (Mobile UX)
+        $(document).on("click", function (event) {
+          // Seleccionamos el menú colapsable
+          var clickover = $(event.target);
+          var _opened = $(".navbar-collapse").hasClass("show");
+
+          // Si el menú está abierto Y el clic NO fue dentro del navbar
+          if (_opened === true && !clickover.closest(".navbar").length) {
+            $(".navbar-toggler").click(); // Simulamos el clic en la hamburguesa para cerrar
+          }
         });
       });
     </script>
