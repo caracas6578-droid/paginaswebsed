@@ -337,11 +337,6 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script>
       // 1. Carga Dinámica de Contenido
       function cargarPagina(url) {
@@ -354,7 +349,10 @@
                 mostrarInicio();
               } else {
                 $(this).fadeIn(500);
-                $(".navbar-collapse").collapse("hide");
+                // Cerrar menú móvil de forma nativa
+                const menu = document.getElementById("navbarNav");
+                const bsCollapse = bootstrap.Collapse.getInstance(menu);
+                if (bsCollapse) bsCollapse.hide();
               }
             });
         });
@@ -364,38 +362,42 @@
         $("#contenido-dinamico").fadeOut(300, function () {
           $("#contenido-principal").fadeIn(500);
         });
-        $(".navbar-collapse").collapse("hide");
+        const menu = document.getElementById("navbarNav");
+        const bsCollapse = bootstrap.Collapse.getInstance(menu);
+        if (bsCollapse) bsCollapse.hide();
       }
 
       $(document).ready(function () {
-        // Inicializar Select2 en el modal de registro
+        // Inicializar Select2
         $(".select2-js").select2({
           placeholder: "Elige tu dinosaurio",
           dropdownParent: $("#registroModal"),
         });
 
-        // Lógica para cerrar el menú en móviles (UX)
+        // Lógica para cerrar el menú al hacer clic fuera (Mobile UX)
         $(document).on("click", function (event) {
-          var clickover = $(event.target);
-          var _opened = $(".navbar-collapse").hasClass("show");
-          if (_opened === true && !clickover.closest(".navbar").length) {
-            $(".navbar-toggler").click();
+          const clickover = $(event.target);
+          const menu = document.getElementById("navbarNav");
+          const _opened = menu.classList.contains("show");
+          if (_opened && !clickover.closest(".navbar").length) {
+            bootstrap.Collapse.getOrCreateInstance(menu).hide();
           }
         });
 
         // --------------------------------------------------------
-        // LÓGICA DE LOGIN (Sin Base de Datos)
+        // LÓGICA DE LOGIN
         // --------------------------------------------------------
         $("#formLogin").on("submit", function (e) {
           e.preventDefault();
-
           let correo = $("input[name='correo']").val();
           let password = $("input[name='password']").val();
 
-          // Validación Simulada Fija
+          // Instancia nativa del modal
+          const modalLoginEl = document.getElementById("loginModal");
+          const modalLogin = bootstrap.Modal.getOrCreateInstance(modalLoginEl);
+
           if (correo === "admin@dinopedia.com" && password === "1234") {
-            // ÉXITO
-            $("#loginModal").modal("hide");
+            modalLogin.hide();
             Swal.fire({
               icon: "success",
               title: "¡Bienvenido!",
@@ -405,11 +407,9 @@
             });
             $("#formLogin").trigger("reset");
           } else {
-            // ERROR -> Redirigir a Registro
-            $("#loginModal").modal("hide");
+            modalLogin.hide();
             $("#reg_correo").val(correo);
 
-            // Condición de carrera corregida con setTimeout
             setTimeout(function () {
               Swal.fire({
                 icon: "error",
@@ -422,11 +422,12 @@
                 color: "#fff",
               }).then((result) => {
                 if (result.isConfirmed) {
-                  $("#registroModal").modal("show");
+                  bootstrap.Modal.getOrCreateInstance(
+                    document.getElementById("registroModal"),
+                  ).show();
                 } else {
-                  // Limpieza de seguridad
-                  $("body").removeClass("modal-open");
-                  $("body").css("padding-right", "");
+                  // Limpieza total de fondo
+                  $("body").removeClass("modal-open").css("padding-right", "");
                   $(".modal-backdrop").remove();
                 }
               });
@@ -435,27 +436,23 @@
         });
 
         // --------------------------------------------------------
-        // LÓGICA DE REGISTRO (Simulada)
+        // LÓGICA DE REGISTRO
         // --------------------------------------------------------
         $("#formRegistro").on("submit", function (e) {
           e.preventDefault();
-
-          let dinoElegido = $("select[name='reg_dino']").val();
-
-          $("#registroModal").modal("hide");
+          const modalReg = bootstrap.Modal.getOrCreateInstance(
+            document.getElementById("registroModal"),
+          );
+          modalReg.hide();
 
           Swal.fire({
             icon: "success",
             title: "¡Cuenta Creada!",
-            text:
-              "Tu usuario ha sido registrado (Modo Simulado) con tu " +
-              dinoElegido +
-              " favorito.",
+            text: "Registro simulado completado con éxito.",
             background: "#1e293b",
             color: "#fff",
           });
 
-          // Limpiar el formulario
           $("#formRegistro").trigger("reset");
           $(".select2-js").val(null).trigger("change");
         });
