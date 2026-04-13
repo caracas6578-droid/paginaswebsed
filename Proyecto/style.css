@@ -286,3 +286,43 @@ textarea {
     resize: vertical; /* Permite que el usuario cambie el alto pero no el ancho */
     font-family: inherit;
 }
+
+/* =========================================
+   Fondo de Video
+   ========================================= */
+#video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Al último del eje Z */
+    object-fit: cover; /* Escala y recorta para cubrir todo */
+}
+
+/* Opcional: Filtro oscuro sobre el video para mejorar la legibilidad del texto */
+#video-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.6); /* Color de fondo oscuro con transparencia */
+}
+
+/* Ajustes menores para asegurar que el contenido esté sobre el video */
+body {
+    background-color: transparent; /* El video es el fondo */
+}
+
+.container, .navbar, .site-footer {
+    position: relative;
+    z-index: 1; /* Sobre el video */
+}
+
+.modal {
+    z-index: 2000; /* Asegurar que los modales estén arriba */
+}
